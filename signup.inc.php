@@ -28,6 +28,7 @@ if (empty($pwd)){ // user needs to fill out this
 }
 else { // if there are users with the same name, user cannot login
 
+//Prepared statement for quering if there are users with the same uid.
 	$stmt = $conn->prepare("SELECT uid FROM user WHERE uid=?");
 	$stmt->bind_param("s", $user);
 
@@ -40,11 +41,28 @@ else { // if there are users with the same name, user cannot login
 		header("Location: signup.php?error=username");
 		exit();
 	} else {
+
+		//Prepared statement for inserting new user into the database.
 		$encrypted_password = password_hash($pwd, PASSWORD_DEFAULT); //hashing the password to MyAdmin
-		$sql = "INSERT INTO user (first, last, uid, pwd)
-		VALUES ('$first', '$last', '$uid', '$encrypted_password')";
-		$result = mysqli_query($conn, $sql);
+		$stmt = $conn->prepare("INSERT INTO user (first, last, uid, pwd)
+		VALUES (?, ?, ?, ?)");
+		$stmt->bind_param("ssss", $name, $family, $user, $enc);
+
+		$name = $first;
+		$family = $last;
+		$user = $uid;
+		$enc = $encrypted_password;
+		$stmt ->execute();
+
+		$result = $stmt->get_result();
+		$_SESSION['uid'] = $row['uid'];
+
+    	setcookie('uid', $row['uid'], time() + (60 * 60 * 24 * 30));    // expires in 30 days
 
 		header("Location: index.php");
+
+		
 	}
+
 }
+

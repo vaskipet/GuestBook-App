@@ -37,7 +37,7 @@ if ($hash == 0) {
 	} else {
 	  $_SESSION['id'] = $row['id']; //Unique id that only one user has.
 	}
-
+	setcookie('uid', $row['uid'], time() + (60 * 60 * 24 * 30)); 
 	header("refresh:1; index.php");
 
 }

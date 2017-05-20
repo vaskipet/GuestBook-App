@@ -18,7 +18,6 @@ textarea {
 	text-align: center;
 }
 
-
 button  {
 	width: 100px;
 	height: 30px;
@@ -30,8 +29,6 @@ button  {
 	margin-bottom: 60px;
 }
 
-
-
 .commentbox {
 	margin: auto;
 	width: 815px;
@@ -41,7 +38,6 @@ button  {
 	border-radius: 10px;
 	position: relative
 }
-
 
 .editform {
 	position: absolute;

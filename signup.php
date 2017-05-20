@@ -3,12 +3,13 @@
 ?>
 
 <?php
+//Error handling has been implemented using mostly the URL or the address in the address bar.
 $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; //superglobal that gets the information from browser´s URL.
 if (strpos($url, 'error=empty') !== false){ //if in the url there is "error=empty" it will echo the next line
 	echo "You left empty fields. Fill out all the fields!"; // signup.inc.php
 }
 elseif (strpos($url, 'error=username') !== false){
-	echo "Username already exists!"; // signup.inc.php has this on the row 32.
+	echo "Username already exists!"; // signup.inc.php has this 
 }
 
   if (isset($_SESSION['id'])) {
@@ -22,6 +23,7 @@ elseif (strpos($url, 'error=username') !== false){
  ?>
 
 <?php
+
 if (isset($_SESSION['id'])) {
 	echo "<p class='pCenter'> You are already logged in! </p>";
 } else {
@@ -36,6 +38,7 @@ if (isset($_SESSION['id'])) {
               <button type='submit' class='btn btn-warning'>SIGN UP!</button>
           </form></div>";
 }
+
 ?>
 
   </body>

@@ -17,6 +17,7 @@ function setComments($conn) {
 	}
 }
 
+
 // Posting all the comments from database to the fronpage, regardless
 //if the user is logged in or not.
 function getComments($conn) {
