@@ -28,8 +28,13 @@ if (empty($pwd)){ // user needs to fill out this
 }
 else { // if there are users with the same name, user cannot login
 
-	$sql = "SELECT uid FROM user WHERE uid='$uid'";
-	$result = mysqli_query($conn, $sql);
+	$stmt = $conn->prepare("SELECT uid FROM user WHERE uid=?");
+	$stmt->bind_param("s", $user);
+
+	$user = $uid;
+	$stmt->execute();
+
+	$result = $stmt->get_result();
 	$uidcheck = mysqli_num_rows($result);
 	if ($uidcheck > 0) {	// there can´t be more than 1 of the same username.
 		header("Location: signup.php?error=username");
@@ -43,5 +48,3 @@ else { // if there are users with the same name, user cannot login
 		header("Location: index.php");
 	}
 }
-
-?>

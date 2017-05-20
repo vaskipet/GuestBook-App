@@ -60,11 +60,9 @@ function getComments($conn) {
 	}
 }
 
-
-
 //Prepared statement for Editing the comments.
 function editComments($conn) {
-	if (isset($_POST['commentSubmit'])) {
+	if (isset($_POST['commentSubmit'])) { //If the user clicks the commentSubmit -button..
 		$cid = $_POST['cid'];
 		$uid = $_POST['uid'];
 		$date = $_POST['date'];
@@ -82,9 +80,9 @@ function editComments($conn) {
 	}
 }
 
-//Function for deleting comments. Same user can delete who has written the comment.
+//Prepared Function for deleting comments. Same user can delete who has written the comment.
 function deleteComments($conn) {
-	if (isset($_POST['commentDelete'])) {
+	if (isset($_POST['commentDelete'])) { //If the user clicks the commentDelete -button..
 		$cid = $_POST['cid'];
 
 		$stmt = $conn->prepare("DELETE FROM comments WHERE cid=?");

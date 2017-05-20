@@ -5,10 +5,13 @@ include 'dbh.php';
 $uid = $_POST['uid'];
 $pwd = $_POST['pwd'];
 
-setcookie('name', 'zorro', time() + 86400);
+//Prepared statement for logging in SQLquery.
+$stmt = $conn->prepare("SELECT * FROM user WHERE uid = ?");
+$stmt->bind_param("s", $user);
+$user = $uid;
+$stmt->execute();
 
-$sql = "SELECT * FROM user WHERE uid = '$uid'";
-$result = mysqli_query($conn, $sql);
+$result = $stmt->get_result();
 $row = mysqli_fetch_assoc($result);
 $hash_pwd = $row['pwd'];
  //de-hashing the password.
@@ -20,8 +23,14 @@ if ($hash == 0) {
 	exit();
 } else {
 
-	$sql = "SELECT * FROM user WHERE uid='$uid' AND pwd='$hash_pwd'";
-	$result = mysqli_query($conn, $sql);
+//Prepared statement for logging in SQLquery (password)
+	$stmt = $conn->prepare("SELECT * FROM user WHERE uid=? AND pwd=?");
+	$stmt->bind_param("ss", $user, $hsh);
+	$user = $uid;
+	$hsh = $hash_pwd;
+	$stmt->execute();
+
+	$result = $stmt->get_result();
 
 	if (!$row = mysqli_fetch_assoc($result)) {
 	  echo "Your username or password is incorrect!"; //For troubleshooting.. header() brings the user in to the frontpage of course.
@@ -33,3 +42,5 @@ if ($hash == 0) {
 
 }
 ?>
+
+
