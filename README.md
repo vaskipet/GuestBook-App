@@ -14,9 +14,13 @@ The objective of the project was to create a simple guestbook feature that allow
 How to Setup locally:
 
 •	Download the .ZIP from this GitHub repository.
+
 •	Save the folder under "C:\xampp\htdocs" directory and name it "guestbook".
+
 •	Launch Apache and MySQL (with XAMPP for example).
+
 •	Go to phpMyAdmin, create a database "pulina2" and import the .SQL script 
+
 •	Open "http://localhost:8080/guestbook/index.php" in your web browser (assuming "8080" is your Apache port number, which is "80" by default).
 
 
