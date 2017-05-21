@@ -11,7 +11,7 @@ CREATE TABLE `user` (
 
 CREATE TABLE `comments` (
   `cid` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `uid` varchar(128) NOT NULL,
+  `uid` int(10) NOT NULL,
   `date` datetime NOT NULL,
   `message` varchar(128) NOT NULL
 );
