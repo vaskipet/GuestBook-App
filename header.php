@@ -2,7 +2,7 @@
   session_start(); // Starting the session.
   date_default_timezone_set('Europe/Helsinki'); //Setting the correct timezone for the comments.
   include 'dbh.php'; //Database handler
-  include 'comments.inc.php'; //Comments are available for view even if you are not logged in.
+  include 'functions.php'; //Comments are available for view even if you are not logged in.
   include 'nav.php' //Navigation.
 ?>
 

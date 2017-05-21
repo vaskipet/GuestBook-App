@@ -22,7 +22,7 @@ if (empty($uid)){ // user needs to fill out this
 	header("Location: signup.php?error=empty");
 	exit();
 }
-if (empty($pwd)){ // user needs to fill out this
+if (empty($pwd) || ($pwdlength < 4 || $pwdlength > 12){ // user needs to fill out this
 	header("Location: signup.php?error=empty");
 	exit();
 }
@@ -60,9 +60,6 @@ else { // if there are users with the same name, user cannot login
     	setcookie('uid', $row['uid'], time() + (60 * 60 * 24 * 30));    // expires in 30 days
 
 		header("Location: index.php");
-
-		
 	}
-
 }
 

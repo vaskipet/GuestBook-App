@@ -1,7 +1,7 @@
 <?php
   date_default_timezone_set('Europe/Helsinki');
   include 'dbh.php';
-  include 'comments.inc.php';
+  include 'functions.php';
 ?>
 
 <!DOCTYPE html>
