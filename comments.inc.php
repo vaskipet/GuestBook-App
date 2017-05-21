@@ -36,7 +36,7 @@ function getComments($conn) {
 					echo $row['date']."<br><br>";
 					echo nl2br($row['message']); //nl2br means if the comment is long then it should be in the same textbox
 					echo "</p>";
-					// Deleting a user´s comment when the user is logged in.
+					// Deleting a user´s comment when the same user is logged in.
 					if (isset($_SESSION['id'])) {
 							if ($_SESSION['id'] == $row2['id']) {
 								echo "<form class='deleteform' method='POST' action='".deleteComments($conn)."'>
@@ -61,7 +61,7 @@ function getComments($conn) {
 	}
 }
 
-//Prepared statement for Editing the comments.
+//Prepared statement for Editing the comments in this function, line 72.
 function editComments($conn) {
 	if (isset($_POST['commentSubmit'])) { //If the user clicks the commentSubmit -button..
 		$cid = $_POST['cid'];
@@ -81,7 +81,7 @@ function editComments($conn) {
 	}
 }
 
-//Prepared Function for deleting comments. Same user can delete who has written the comment.
+//Function for deleting comments. Same user can delete who has written the comment.
 function deleteComments($conn) {
 	if (isset($_POST['commentDelete'])) { //If the user clicks the commentDelete -button..
 		$cid = $_POST['cid'];

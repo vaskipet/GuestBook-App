@@ -14,13 +14,11 @@
 
 <body>
 
-
 <?php
 $cid = $_POST['cid'];
 $uid = $_POST['uid'];
 $date = $_POST['date'];
 $message = $_POST['message'];
-
 
 //Edit comment -form, where user can edit his/her comment.
 echo "<form method='POST' action='".editComments($conn)."'>
@@ -32,7 +30,6 @@ echo "<form method='POST' action='".editComments($conn)."'>
   </form>";
 
   ?>
-
 
 </body>
 

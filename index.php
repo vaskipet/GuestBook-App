@@ -31,11 +31,11 @@ echo "<div class='conatainer'>
         </div>
       </div>";
 
-  } else {
+  } else { //If user is not logged in the following information is displayed.
     echo "<div class='notice'><p>You need to be logged in to comment! </p>
   	</div><br>";
   }
-  getComments($conn);
+  getComments($conn); //All the comments are available for everyone to see.
   ?>
 
 
