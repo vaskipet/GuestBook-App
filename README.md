@@ -3,7 +3,7 @@ PHP Course project
 GUESTBOOK – The “Hello World” of CRUD Apps.
 
 This simple guestbook application was created for PHP course in Laurea University of Applied Sciences.
-The objective of the project was to create a simple guestbook feature that allows users to create accounts and allows them to send comments.
+The objective of the project was to create a simple guestbook feature that allows users to create accounts and allows them to send comments. Most of this was made using mmtuts.net -tutorials and class material. I have added some small feaures, responsiveness and added prepared statements and comments to the code. 
 
         •	Users are required to create an account on the website in order to:
           o	Comment
